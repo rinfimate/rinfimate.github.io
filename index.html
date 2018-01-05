@@ -5,6 +5,7 @@
         </title>
         <script type="text/javascript">
             function onButtonClick() {
+                alert('test');
                 let serviceUuid = document.querySelector('#service').value;
                 if (serviceUuid.startsWith('0x')) {
                     serviceUuid = parseInt(serviceUuid);
@@ -45,6 +46,6 @@
         </script>
     </head>
     <body>
-
+        <button onclick="onButtonClick()">Click to Open</button>
     </body>
 </html>
