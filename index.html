@@ -16,18 +16,18 @@
                     characteristicUuid = parseInt(characteristicUuid);
                 }
 
-                log('Requesting Bluetooth Device...');
+                alert('Requesting Bluetooth Device...');
                 navigator.bluetooth.requestDevice({filters: [{services: [serviceUuid]}]})
                 .then(device => {
-                    log('Connecting to GATT Server...');
+                    alert('Connecting to GATT Server...');
                     return device.gatt.connect();
                 })
                 .then(server => {
-                    log('Getting Service...');
+                    alert('Getting Service...');
                     return server.getPrimaryService(serviceUuid);
                 })
                 .then(service => {
-                    log('Getting Characteristics...');
+                    alert('Getting Characteristics...');
                     if (characteristicUuid) {
                     // Get all characteristics that match this UUID.
                     return service.getCharacteristics(characteristicUuid);
@@ -36,11 +36,11 @@
                     return service.getCharacteristics();
                 })
                 .then(characteristics => {
-                    log('> Characteristics: ' +
+                    alert('> Characteristics: ' +
                     characteristics.map(c => c.uuid).join('\n' + ' '.repeat(19)));
                 })
                 .catch(error => {
-                    log('Argh! ' + error);
+                    alert('Argh! ' + error);
                 });
             }
         </script>
