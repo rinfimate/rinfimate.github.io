@@ -7,26 +7,21 @@
             function connect() {
                 //TODO:Filter Specific Pod
                 //TODO:Check
-                let podName = "LCB001";
+                let podName = "BLR-Z001";
                 let serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
                 //RX - 6E400002-B5A3-F393-E0A9-E50E24DCCA9E
                 //TX - 6E400003-B5A3-F393-E0A9-E50E24DCCA9E
-                alert('Requesting Bluetooth Device...');
                 navigator.bluetooth.requestDevice({
                     filters: [{name: podName}],
                     optionalServices:[serviceUuid]
                 })
                 .then(device => {
-                    alert('Connecting to GATT Server...');
                     return device.gatt.connect();
                 })
                 .then(server => {
-                    alert('Getting Service...');
                     return server.getPrimaryService(serviceUuid);
                 })
                 .then(service => {
-                    alert('Getting Characteristics...');
-                    // Get all characteristics.
                     return service.getCharacteristics();
                 })
                 .then(characteristics => {
@@ -34,7 +29,7 @@
                     characteristics.map(c => c.uuid).join('\n' + ' '.repeat(19)));
                 })
                 .catch(error => {
-                    alert('Argh! ' + error);
+                    alert('Error:' + error);
                 });
             }
         </script>
