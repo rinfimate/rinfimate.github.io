@@ -8,8 +8,10 @@
                 //TODO: Identity Check
                 let podName = "BLR-Z001";
                 let serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
-                //RX - 6e400002-b5a3-f393-e0a9-e50e24dcca9e
-                //TX - 6e400003-b5a3-f393-e0a9-e50e24dcca9e
+                let rxCharacteristicUUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e";
+                let txCharacteristicUUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
+                let rxCharacteristic;
+                let txCharacteristic;
                 navigator.bluetooth.requestDevice({
                     filters: [{name: podName}],
                     optionalServices:[serviceUuid]
@@ -24,16 +26,18 @@
                     return service.getCharacteristics();
                 })
                 .then(characteristics => {
-                    alert('> Characteristics: ' +
-                    characteristics.map(c => c.uuid).join('\n' + ' '.repeat(19)));
+                    console.log(characteristics);
                 })
                 .catch(error => {
                     alert('Error:' + error);
                 });
             }
+            function open(){
+            }
         </script>
     </head>
     <body>
         <button onclick="connect()">Connect</button>
+        <button onclick="open()"></button>
     </body>
 </html>
