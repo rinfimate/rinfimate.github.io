@@ -14,14 +14,13 @@
                 );
                 return urlParams;
             }
-            function connect() {
+            function open() {
                 //TODO: Identity Check??
                 //TODO: Encryption??
-                var urlToParse = location.search;  
-                var result = parseQueryString(urlToParse);  
-                alert(JSON.stringify(result));  
-                //QP+SUBMIT=<KEY>
-                let podName = "BLR-Z001";
+                let urlToParse = location.search;  
+                let result = parseQueryString(urlToParse);  
+                let podName = result["pod"];
+                let otp = result["otp"];
                 let serviceUuid = "6e400001-b5a3-f393-e0a9-e50e24dcca9e";
                 let rxCharacteristicUUID = "6e400002-b5a3-f393-e0a9-e50e24dcca9e";
                 let txCharacteristicUUID = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
@@ -37,22 +36,18 @@
                 .then(server => {
                     return server.getPrimaryService(serviceUuid);
                 })
-                .then(service => {
-                    return service.getCharacteristics();
-                })
-                .then(characteristics => {
-                    console.log(characteristics);
+                .then(service => service.getCharacteristic(rxCharacteristicUUID))
+                .then(characteristic => {
+                    alert("Submitting:" + "QP+SUBMIT="+ otp);
+                    return characteristic.writeValue("QP+SUBMIT="+ otp);
                 })
                 .catch(error => {
                     alert('Error:' + error);
                 });
             }
-            function open(){
-            }
         </script>
     </head>
     <body>
-        <button onclick="connect()">Connect</button>
-        <button onclick="open()"></button>
+        <button onclick="open()">Open</button> Connect to the  
     </body>
 </html>
