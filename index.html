@@ -39,7 +39,8 @@
                 .then(service => service.getCharacteristic(rxCharacteristicUUID))
                 .then(characteristic => {
                     alert("Submitting:" + "QP+SUBMIT="+ otp);
-                    return characteristic.writeValue("QP+SUBMIT="+ otp);
+                    var enc = new TextEncoder("utf-8");
+                    return characteristic.writeValue(enc.encode("QP+SUBMIT="+ otp));
                 })
                 .catch(error => {
                     alert('Error:' + error);
