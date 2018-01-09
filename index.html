@@ -8,64 +8,71 @@
         </title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <style>
-            .title
-            {
-                color: #555;
-                font-size: 18px;
-                font-weight: 400;
-                display: block;
+        .title
+        {
+            color: #555;
+            font-size: 18px;
+            font-weight: 400;
+            display: block;
+        }
+        .content { 
+            width: 400px;margin: 16px auto;font-size: 16px;
+        }
+        @media all and (max-width:450px){
+            .content {
+                width: 95%;
             }
-            .form-container
-            {
-                margin-top: 20px;
-                padding: 40px 0px 20px 0px;
-                background-color: #f7f7f7;
-                -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-                -moz-border-radius: 5px;
-                -webkit-border-radius: 5px;
-                border-radius: 5px;
-            }
-            .img
-            {
-                width: 96px;
-                height: 96px;
-                margin: 0 auto 10px;
-                display: block;
-                -moz-border-radius: 50%;
-                -webkit-border-radius: 50%;
-                border-radius: 50%;
-            }
-            .form
-            {
-                max-width: 330px;
-                padding: 15px;
-                margin: 0 auto;
-                margin-bottom: 10px;
-            }
-            .form label
-            {
-                font-size: 22px;
-                color: #777777;
-                
-            }
-            .form label span
-            {
-                color: #333333;
-            }
+        }
+        .form-container
+        {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: #f7f7f7;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .img
+        {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .form
+        {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        .form label
+        {
+            font-size: 22px;
+            color: #777777;
+        }
+        .form label span
+        {
+            color: #333333;
+        }
 
-            .help
-            {
-                margin-top: 10px;
-            }
-            .copyright
-            {
-                display: block;
-                margin-top: 10px;
-                font-size: 11px;
-                color: #777777;
-            }
+        .help
+        {
+            margin-top: 10px;
+        }
+        .copyright
+        {
+            display: block;
+            margin-top: 10px;
+            font-size: 11px;
+            color: #777777;
+        }
         </style>
         <script type="text/javascript">
             function parseQueryString(url) {
@@ -124,7 +131,7 @@
     <body onload="onload()">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <div class="content">
                     <!--TODO: Check Bluetooth Availability-->
                     <h1 class="text-center title">Open Door Using Bluetooth</h1>
                     <div class="form-container">
