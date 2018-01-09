@@ -112,6 +112,7 @@
                     optionalServices:[serviceUuid]
                 })
                 .then(device => {
+                    console.log(device);
                     return device.gatt.connect();
                 })
                 .then(server => {
