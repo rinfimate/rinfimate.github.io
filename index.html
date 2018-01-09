@@ -40,7 +40,7 @@
                 .then(characteristic => {
                     alert("Submitting:" + "QP+SUBMIT="+ otp);
                     var enc = new TextEncoder("utf-8");
-                    return characteristic.writeValue(enc.encode("QP+SUBMIT="+ otp));
+                    return characteristic.writeValue(enc.encode("QP+SUBMIT="+ otp + "\r\n"));
                 })
                 .catch(error => {
                     alert('Error:' + error);
